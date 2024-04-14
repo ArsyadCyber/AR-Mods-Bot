@@ -9,6 +9,7 @@
   "name": "bot-telegram",
   "version": "1.0.0",
   "description": "Bot dibuat dengan grammy",
+  "github": "https://github.com/ArsyadCyber/AR-Mods-Bot",
   "main": "lib/index.js",
   "directories": {
     "lib": "lib"

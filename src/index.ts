@@ -1,11 +1,17 @@
 import { Bot } from "grammy";
 import { limit } from "@grammyjs/ratelimiter";
-
+import * as fs from "fs";
+import * as path from "path";
 import start from "./commands/start";
 import help from "./commands/help";
 import about from "./commands/about";
+import telegraph from "./commands/telegraph";
 
-const bot = new Bot("7079720533:AAGJdsVYtrq7AyEzKaIk6Ea3umrRpb-RAT4");
+const configPath = path.resolve(__dirname, "config", "token.json");
+
+// Membaca file config.json
+const config = JSON.parse(fs.readFileSync(configPath, "utf-8"));
+const bot = new Bot(config.botToken);
 bot.use(
   limit({
     // Hanya 3 pesan yang akan diproses dalam rentang waktu 2 detik.
@@ -26,6 +32,7 @@ bot.use(
 bot.use(start.middleware());
 bot.use(help.middleware());
 bot.use(about.middleware());
+bot.use(telegraph.middleware());
 // Tangani pesan lainnya.
 bot.on("message", (ctx) => ctx.reply("Dapat pesan baru!"));
 

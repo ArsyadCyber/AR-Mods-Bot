@@ -4,8 +4,6 @@ import { startMessage } from "../message/startMessage";
 const bot = new Composer();
 const bantuan = new InlineKeyboard()
   .text("Bantuan", "help")
-  .url("Source code", "https://google.com")
-  .row()
   .text("Tentang", "about");
 bot.command("start", (ctx) => {
   ctx.reply(startMessage(ctx), {

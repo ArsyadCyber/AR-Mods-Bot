@@ -1,16 +1,15 @@
 import { Composer, InlineKeyboard } from "grammy";
+import { autoQuote } from "@roziscoding/grammy-autoquote";
 import { startMessage } from "../message/startMessage";
 
 const bot = new Composer();
 const bantuan = new InlineKeyboard()
   .text("Bantuan", "help")
   .text("Tentang", "about");
+bot.use(autoQuote());
 bot.command("start", (ctx) => {
   ctx.reply(startMessage(ctx), {
     parse_mode: "Markdown",
-    reply_parameters: {
-      message_id: ctx.msg?.message_id,
-    },
     reply_markup: bantuan,
   });
 });

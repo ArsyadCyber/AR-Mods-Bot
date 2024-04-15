@@ -7,7 +7,7 @@ const bot = new Bot('7079720533:AAGJdsVYtrq7AyEzKaIk6Ea3umrRpb-RAT4');
 
 // Tangani pesan /start
 bot.command('start', (ctx) => {
-  ctx.reply("Kirimkan saya sebuah gambar, dan saya akan mengunggahnya ke Telegraph.");
+  ctx.reply('Kirimkan saya sebuah gambar, dan saya akan mengunggahnya ke Telegraph.');
 });
 
 // Tangani ketika pengguna mengirim foto
@@ -29,7 +29,7 @@ bot.on(':photo', async (ctx) => {
       await ctx.reply(`Gambar berhasil diunggah! Link: ${result.link}`);
     } catch (error) {
       console.error(error);
-      await ctx.reply("Maaf, terjadi kesalahan saat mengunggah gambar.");
+      await ctx.reply('Maaf, terjadi kesalahan saat mengunggah gambar.');
     }
   }
 });

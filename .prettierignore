@@ -1,7 +1,12 @@
-node_modules
+node_modules/
 # Ignore artifacts:
-lib
+lib/
 coverage
 build
 tsconfig.json
 .config
+.eslintrc.js
+nodemon.json
+.prettierignore
+prettierrc.json
+package.json

@@ -1,5 +1,5 @@
 import { Composer } from "grammy";
-import { getUserPoints } from '../lib/pointsManager'; // Sesuaikan path sesuai lokasi file pointsManager Anda
+import { getUserPoints } from "../lib/pointsManager"; // Sesuaikan path sesuai lokasi file pointsManager Anda
 
 const bot = new Composer();
 

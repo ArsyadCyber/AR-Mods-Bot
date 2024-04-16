@@ -5,7 +5,10 @@ import { startMessage } from "../message/startMessage";
 const bot = new Composer();
 const bantuan = new InlineKeyboard()
   .text("Bantuan", "help")
-  .text("Tentang", "about");
+  .text("Tentang", "about")
+  .row()
+  .url("Support Me", "https://t.me/ArsyadProject")
+  .url("Channel", "https://t.me/+Qt8CJw8_Kfc4ODA1");
 bot.use(autoQuote());
 bot.command("start", (ctx) => {
   ctx.reply(startMessage(ctx), {

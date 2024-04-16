@@ -7,6 +7,7 @@ import help from "./commands/help";
 import about from "./commands/about";
 import telegraph from "./commands/telegraph";
 import point from "./commands/poin";
+import claim from "./commands/claim";
 import log from "./lib/logging";
 
 const configPath = path.resolve(__dirname, "config", "token.json");
@@ -14,7 +15,6 @@ const configPath = path.resolve(__dirname, "config", "token.json");
 // Membaca file config.json
 const config = JSON.parse(fs.readFileSync(configPath, "utf-8"));
 const bot = new Bot(config.botToken);
-
 bot.use(log);
 bot.use(
   limit({
@@ -33,11 +33,13 @@ bot.use(
     },
   }),
 );
+
 bot.use(start.middleware());
 bot.use(help.middleware());
 bot.use(about.middleware());
 bot.use(telegraph.middleware());
 bot.use(point.middleware());
+bot.use(claim.middleware());
 // Tangani pesan lainnya.
 bot.on("message", (ctx) => ctx.reply("Dapat pesan baru!"));
 
